@@ -24,5 +24,6 @@ _apt_repository:
     state: "present"
 
 _apt:
+  - { state: "latest", name: "ssl-cert" }
   - { state: "latest", name: "nginx-extras" }
   - { state: "latest", name: "libssl-dev" }

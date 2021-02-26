@@ -4,6 +4,10 @@
 
 ### Major Changes
 
+  - Support RHEL 8 with Molecule
+  - Support RHEL 7 with Molecule
+  - Remove CentOS 8 support
+
 ## 4.6.0 - 2021-02-24
 
   - Ininitial release for Ansible 2.10 or higher
