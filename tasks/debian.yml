@@ -32,13 +32,6 @@
     create_home: false
     state: "present"
 
-- name: apt-get install gnupg
-  apt:
-    name: "gnupg"
-    state: "present"
-  register: result
-  until: result is succeeded
-
 - name: apt-key add
   apt_key:
     url: "{{ item.url }}"
