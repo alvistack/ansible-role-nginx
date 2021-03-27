@@ -20,7 +20,7 @@ _apt_key:
     state: "present"
 
 _apt_repository:
-  - repo: "deb http://packages.sury.org/nginx/ buster main"
+  - repo: "deb http://packages.sury.org/nginx buster main"
     state: "present"
 
 _apt:
