@@ -20,7 +20,7 @@ _apt_key:
     state: "present"
 
 _apt_repository:
-  - repo: "deb http://ppa.launchpad.net/ondrej/nginx/ubuntu groovy main"
+  - repo: "deb http://ppa.launchpad.net/ondrej/nginx/ubuntu hirsute main"
     state: "present"
 
 _apt:
