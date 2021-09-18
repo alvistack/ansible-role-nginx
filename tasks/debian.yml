@@ -34,6 +34,7 @@
 
 - name: apt-key add
   apt_key:
+    keyring: "{{ item.keyring }}"
     url: "{{ item.url }}"
     id: "{{ item.id }}"
     state: "{{ item.state }}"
@@ -43,6 +44,7 @@
 
 - name: apt-add-repository
   apt_repository:
+    filename: "{{ item.filename }}"
     repo: "{{ item.repo }}"
     state: "{{ item.state }}"
     mode: "{{ item.mode | default('0644') }}"

@@ -15,12 +15,14 @@
 # limitations under the License.
 
 _apt_key:
-  - url: "http://packages.sury.org/nginx/apt.gpg"
+  - keyring: "/etc/apt/trusted.gpg.d/sury.gpg"
+    url: "http://packages.sury.org/nginx/apt.gpg"
     id: "15058500A0235D97F5D10063B188E2B695BD4743"
     state: "present"
 
 _apt_repository:
-  - repo: "deb http://packages.sury.org/nginx bullseye main"
+  - filename: "sury"
+    repo: "deb http://packages.sury.org/nginx bullseye main"
     state: "present"
 
 _apt:
