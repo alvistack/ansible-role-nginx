@@ -1,5 +1,7 @@
 # Ansible Role for Nginx
 
+<img src="/alvistack.svg" width="75" alt="AlviStack">
+
 [![Gitlab pipeline status](https://img.shields.io/gitlab/pipeline/alvistack/ansible-role-nginx/master)](https://gitlab.com/alvistack/ansible-role-nginx/-/pipelines)
 [![GitHub release](https://img.shields.io/github/release/alvistack/ansible-role-nginx.svg)](https://github.com/alvistack/ansible-role-nginx/releases)
 [![GitHub license](https://img.shields.io/github/license/alvistack/ansible-role-nginx.svg)](https://github.com/alvistack/ansible-role-nginx/blob/master/LICENSE)
