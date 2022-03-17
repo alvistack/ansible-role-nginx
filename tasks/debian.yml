@@ -25,9 +25,9 @@
   ansible.builtin.user:
     name: "www-data"
     uid: "33"
-    ansible.builtin.group: "www-data"
+    group: "www-data"
     home: "/var/www"
-    ansible.builtin.shell: "/usr/sbin/nologin"
+    shell: "/usr/sbin/nologin"
     system: true
     create_home: false
     state: "present"
