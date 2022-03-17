@@ -15,17 +15,17 @@
 # limitations under the License.
 
 - name: groupadd
-  group:
+  ansible.builtin.group:
     name: "nginx"
     system: true
     state: "present"
 
 - name: useradd
-  user:
+  ansible.builtin.user:
     name: "nginx"
-    group: "nginx"
+    ansible.builtin.group: "nginx"
     home: "/var/lib/nginx"
-    shell: "/bin/false"
+    ansible.builtin.shell: "/bin/false"
     system: true
     create_home: false
     state: "present"
@@ -33,7 +33,7 @@
 - name: zypper install
   vars:
     ansible_python_interpreter: "python3"
-  zypper:
+  ansible.builtin.zypper:
     name: "{{ item.name }}"
     state: "{{ item.state }}"
   loop: "{{ _zypper }}"
