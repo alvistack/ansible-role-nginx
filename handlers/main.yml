@@ -15,7 +15,7 @@
 # limitations under the License.
 
 - name: nginx | systemctl restart nginx.service
-  service:
+  ansible.builtin.service:
     name: "nginx.service"
     state: "restarted"
     enabled: true
