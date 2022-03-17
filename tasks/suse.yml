@@ -23,9 +23,9 @@
 - name: useradd
   ansible.builtin.user:
     name: "nginx"
-    ansible.builtin.group: "nginx"
+    group: "nginx"
     home: "/var/lib/nginx"
-    ansible.builtin.shell: "/bin/false"
+    shell: "/bin/false"
     system: true
     create_home: false
     state: "present"
