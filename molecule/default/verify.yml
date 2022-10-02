@@ -20,6 +20,7 @@
   become: true
   tasks:
     - name: nginx -v
-      ansible.builtin.command: nginx -v
+      ansible.builtin.command:
+        cmd: nginx -v
       register: result
       changed_when: result is not succeeded
