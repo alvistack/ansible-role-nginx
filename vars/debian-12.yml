@@ -22,7 +22,7 @@ _apt_key:
 
 _apt_repository:
   - filename: "sury"
-    repo: "deb http://packages.sury.org/nginx buster main"
+    repo: "deb http://packages.sury.org/nginx bookworm main"
     state: "present"
 
 _apt:
