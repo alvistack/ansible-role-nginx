@@ -1,5 +1,4 @@
 ---
-
 # Copyright 2024 Wong Hoi Sing Edison <hswong3i@pantarei-design.com>
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -16,19 +15,19 @@
 
 - name: groupadd
   ansible.builtin.group:
-    name: "nginx"
+    name: nginx
     system: true
-    state: "present"
+    state: present
 
 - name: useradd
   ansible.builtin.user:
-    name: "nginx"
-    group: "nginx"
-    home: "/var/lib/nginx"
-    shell: "/sbin/nologin"
+    name: nginx
+    group: nginx
+    home: /var/lib/nginx
+    shell: /sbin/nologin
     system: true
     create_home: false
-    state: "present"
+    state: present
 
 - name: rpm --import
   ansible.builtin.rpm_key:
@@ -54,8 +53,8 @@
         && mv .{{ item.dest }} {{ item.dest }} \
         && rm -rf $TMP_DIR
   args:
-    executable: "/bin/bash"
-    creates: "/var/log/ansible/{{ item.checksum }}-get_url.log"
+    executable: /bin/bash
+    creates: /var/log/ansible/{{ item.checksum }}-get_url.log
   loop: "{{ _rpm_download }}"
   register: result
   until: result is succeeded
@@ -68,8 +67,8 @@
       exec &> >(tee -a /var/log/ansible/{{ item.checksum }}-unarchive.log)
       yum install -y {{ item.dest }}
   args:
-    executable: "/bin/bash"
-    creates: "/var/log/ansible/{{ item.checksum }}-unarchive.log"
+    executable: /bin/bash
+    creates: /var/log/ansible/{{ item.checksum }}-unarchive.log
   loop: "{{ _rpm_download }}"
   changed_when: false
   failed_when: false

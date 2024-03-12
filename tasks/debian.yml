@@ -1,5 +1,4 @@
 ---
-
 # Copyright 2024 Wong Hoi Sing Edison <hswong3i@pantarei-design.com>
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -16,21 +15,21 @@
 
 - name: groupadd
   ansible.builtin.group:
-    name: "www-data"
+    name: www-data
     gid: "33"
     system: true
-    state: "present"
+    state: present
 
 - name: useradd
   ansible.builtin.user:
-    name: "www-data"
+    name: www-data
     uid: "33"
-    group: "www-data"
-    home: "/var/www"
-    shell: "/usr/sbin/nologin"
+    group: www-data
+    home: /var/www
+    shell: /usr/sbin/nologin
     system: true
     create_home: false
-    state: "present"
+    state: present
 
 - name: apt-key add
   ansible.builtin.apt_key:
