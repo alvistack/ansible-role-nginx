@@ -22,7 +22,7 @@ _apt_key:
 
 _apt_repository:
   - filename: ondrej
-    repo: deb http://ppa.launchpad.net/ondrej/nginx/ubuntu oracular main
+    repo: deb http://ppa.launchpad.net/ondrej/nginx/ubuntu noble main
     state: present
 
 _apt:
