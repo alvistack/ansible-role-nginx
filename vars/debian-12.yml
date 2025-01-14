@@ -14,15 +14,14 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-_apt_key:
-  - keyring: /etc/apt/trusted.gpg.d/sury.gpg
-    url: http://packages.sury.org/nginx/apt.gpg
-    id: 15058500A0235D97F5D10063B188E2B695BD4743
-    state: present
-
-_apt_repository:
-  - filename: sury
-    repo: deb http://packages.sury.org/nginx bookworm main
+_deb822_repository:
+  - name: sury-nginx
+    types: deb
+    uris: http://packages.sury.org/nginx
+    suites: bookworm
+    components: main
+    signed_by: http://packages.sury.org/nginx/apt.gpg
+    enabled: true
     state: present
 
 _apt:

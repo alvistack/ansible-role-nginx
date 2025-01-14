@@ -14,15 +14,14 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-_apt_key:
-  - keyring: /etc/apt/trusted.gpg.d/ondrej.gpg
-    url: http://keyserver.ubuntu.com/pks/lookup?op=get&search=0xB8DC7E53946656EFBCE4C1DD71DAEAAB4AD4CAB6
-    id: B8DC7E53946656EFBCE4C1DD71DAEAAB4AD4CAB6
-    state: present
-
-_apt_repository:
-  - filename: ondrej
-    repo: deb http://ppa.launchpad.net/ondrej/nginx/ubuntu noble main
+_deb822_repository:
+  - name: ondrej-nginx
+    types: deb
+    uris: http://ppa.launchpad.net/ondrej/nginx/ubuntu
+    suites: noble
+    components: main
+    signed_by: http://keyserver.ubuntu.com/pks/lookup?op=get&search=0xB8DC7E53946656EFBCE4C1DD71DAEAAB4AD4CAB6
+    enabled: true
     state: present
 
 _apt:
