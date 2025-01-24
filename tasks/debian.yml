@@ -31,6 +31,19 @@
     create_home: false
     state: present
 
+- name: apt-key add
+  vars:
+    ansible_python_interpreter: "python3"
+  ansible.builtin.get_url:
+    url: "{{ item.url }}"
+    dest: "{{ item.dest }}"
+    checksum: "{{ item.checksum }}"
+    mode: "{{ item.mode | default('0644') }}"
+    timeout: 300
+  loop: "{{ _apt_key }}"
+  register: result
+  until: result is succeeded
+
 - name: apt-add-repository
   ansible.builtin.deb822_repository:
     name: "{{ item.name }}"

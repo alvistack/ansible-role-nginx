@@ -14,13 +14,18 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+_apt_key:
+  - url: http://keyserver.ubuntu.com/pks/lookup?op=get&search=0xB8DC7E53946656EFBCE4C1DD71DAEAAB4AD4CAB6
+    dest: /etc/apt/keyrings/ondrej.asc
+    checksum: "sha256:7258b1cb18300b87cd5668a6d64ce78184d9c0e129382879a0d79291c4ef463d"
+
 _deb822_repository:
   - name: ondrej-nginx
     types: deb
     uris: http://ppa.launchpad.net/ondrej/nginx/ubuntu
     suites: noble
     components: main
-    signed_by: http://keyserver.ubuntu.com/pks/lookup?op=get&search=0xB8DC7E53946656EFBCE4C1DD71DAEAAB4AD4CAB6
+    signed_by: /etc/apt/keyrings/ondrej.asc
     enabled: true
     state: present
 
