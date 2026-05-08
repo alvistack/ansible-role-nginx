@@ -41,3 +41,5 @@
   until: result is succeeded
   notify:
     - nginx | systemctl restart nginx.service
+  tags:
+    - _zypper
