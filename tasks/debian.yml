@@ -42,39 +42,6 @@
     - { dest: /etc/apt/keyrings }
     - { dest: /usr/share/keyrings }
 
-- name: apt-key add
-  vars:
-    ansible_python_interpreter: "python3"
-  ansible.builtin.get_url:
-    url: "{{ item.url }}"
-    dest: "{{ item.dest }}"
-    checksum: "{{ item.checksum }}"
-    mode: "{{ item.mode | default('0644') }}"
-    timeout: 300
-  loop: "{{ _apt_key }}"
-  register: result
-  until: result is succeeded
-
-- name: apt-add-repository
-  ansible.builtin.deb822_repository:
-    name: "{{ item.name }}"
-    types: "{{ item.types }}"
-    uris: "{{ item.uris }}"
-    suites: "{{ item.suites }}"
-    components: "{{ item.components }}"
-    signed_by: "{{ item.signed_by }}"
-    enabled: "{{ item.enabled }}"
-    state: "{{ item.state }}"
-    architectures: "{{ item.architectures | default(None) or omit }}"
-  loop: "{{ _deb822_repository }}"
-  register: result
-  until: result is succeeded
-
-- name: apt-get update
-  ansible.builtin.apt:
-    update_cache: true
-  changed_when: false
-
 - name: apt-get install
   ansible.builtin.apt:
     name: "{{ item.name }}"
@@ -84,3 +51,5 @@
   until: result is succeeded
   notify:
     - nginx | systemctl restart nginx.service
+  tags:
+    - _apt
